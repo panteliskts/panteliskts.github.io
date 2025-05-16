@@ -1,111 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>PantelisKts</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1 {font-family: "Montserrat", sans-serif}
-img {margin-bottom: -7px}
-.w3-row-padding img {margin-bottom: 12px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YOUR_APP_NAME – Effortless Note-Taking for Modern Minds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #fafbfc;
+      color: #23272f;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .logo {
+      margin-bottom: 32px;
+    }
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #555;
+      margin-bottom: 36px;
+    }
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 16px rgba(40,50,70,0.05);
+      font-size: 1.07rem;
+      font-weight: 500;
+    }
+    .cta-btn {
+      padding: 16px 36px;
+      font-size: 1.17rem;
+      background: #23272f;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover {
+      background: #333;
+    }
+    .secondary {
+      margin-top: 24px;
+      font-size: 1rem;
+      color: #888;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .container { padding: 24px 8px; }
+      .feature { padding: 14px 10px; font-size: 1rem; }
+      .cta-btn { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
-    <i class="fa fa-remove"></i>
-  </a>
-  <div class="w3-bar-block w3-center">
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Photos</a>
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Contact</a>
+  <div class="container">
+    <div class="logo">
+      <!-- Replace with your SVG or logo image -->
+      <svg width="54" height="54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="54" height="54" rx="14" fill="#23272f"/>
+        <rect x="12" y="14" width="30" height="26" rx="4" fill="#fff"/>
+        <rect x="16" y="22" width="22" height="2.5" rx="1" fill="#e5e7eb"/>
+        <rect x="16" y="28" width="18" height="2.5" rx="1" fill="#e5e7eb"/>
+        <rect x="16" y="34" width="12" height="2.5" rx="1" fill="#e5e7eb"/>
+        <rect x="36" y="36" width="6" height="2" rx="1" fill="#23272f"/>
+        <rect x="40" y="16" width="4" height="14" rx="2" fill="#23272f"/>
+      </svg>
+    </div>
+    <h1>YOUR_APP_NAME</h1>
+    <div class="subtitle">
+      Effortless note-taking on tablet, phone, or desktop.<br>
+      <b>Turn handwritten ideas into organized, searchable notes.</b>
+    </div>
+    <div class="features">
+      <div class="feature">✍️ <b>Write by hand or type.</b> Supports pens, styluses, and keyboards on any device.</div>
+      <div class="feature">🔄 <b>Sync everywhere.</b> Instant cloud sync across tablet, phone, and PC/Mac.</div>
+      <div class="feature">🔍 <b>Find anything fast.</b> Powerful search—even recognizes your handwriting.</div>
+      <div class="feature">🧮 <b>Math-ready.</b> Converts handwritten math to LaTeX or Markdown.</div>
+      <div class="feature">🔒 <b>Private and secure.</b> Your notes, your control—always encrypted.</div>
+    </div>
+    <button class="cta-btn" onclick="window.location.href='https://YOUR_APP_LINK'">Get Started Free</button>
+    <div class="secondary">
+      Available for iOS, Android, Windows, Mac, and Web. <br>
+      <span style="color:#444">Students & researchers: special discounts.</span>
+    </div>
   </div>
-</nav>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
-
-<!-- Header -->
-<div class="w3-opacity">
-<span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span> 
-<div class="w3-clear"></div>
-<header class="w3-center w3-margin-bottom">
-  <h1><b>PHOTOS TAKEN BY PANTELIS</b></h1>
-  <p><b>Hi! I hope you like my photos!</b></p>
-  <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">Toggle Grid Padding</button></p>
-</header>
-</div>
-
-<!-- Photo Grid -->
-<div class="w3-row" id="myGrid" style="margin-bottom:128px">
-  <div class="w3-third">
-    <img src="images\File_000.png" style="width:100%">
-    <img src="images\File_001.png" style="width:100%">
-    <img src="images\IMG_2476.jpg" style="width:100%">
-    <img src="images\calm plants.jpg" style="width:100%">
-    <img src="images\IMG_2692.JPG" style="width:100%">
-    <img src="images\IMG_5081.jpg" style="width:100%">
-  </div>
-  
-  <div class="w3-third">
-    <img src="images\img2.png" style="width:100%">
-    <img src="images\tv tower night.jpg" style="width:100%">
-    <img src="images\IMG_1270.JPG" style="width:100%">
-    <img src="images\IMG_2335.JPG" style="width:100%">
-    <img src="images\river.jpg" style="width:100%">
-    <img src="images\sea.jpg" style="width:100%">
-  </div>
-
-  <div class="w3-third">
-    <img src="images\pexels-mutecevvil-28871575.jpg" style="width:100%">
-    <img src="images\gold.jpg" style="width:100%">
-    <img src="images\lion.jpg" style="width:100%">
-    <img src="images\waterfall.jpg" style="width:100%">
-    <img src="images\IMG_2690.jpg" style="width:100%">
-  </div>
-  
-</div>
-
-<!-- End Page Content -->
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin-top:128px"> 
-  <a href="https://www.facebook.com/profile.php?id=100048853928419" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-  <a href="https://www.instagram.com/panteliskotsas?igsh=YTh6Nmd4cXowOTdm" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-  <a href="https://https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-  <a href="https://github.com/panteliskts" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
-    
-  </a>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
- 
-<script>
-// Toggle grid padding
-function myFunction() {
-  var x = document.getElementById("myGrid");
-  if (x.className === "w3-row") {
-    x.className = "w3-row-padding";
-  } else { 
-    x.className = x.className.replace("w3-row-padding", "w3-row");
-  }
-}
-
-// Open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.width = "100%";
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
-
 </body>
 </html>
