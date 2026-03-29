@@ -1,110 +1,388 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>PantelisKts</title>
+<title>Pantelis Kotsas</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1 {font-family: "Montserrat", sans-serif}
-img {margin-bottom: -7px}
-.w3-row-padding img {margin-bottom: 12px}
+  :root {
+    --accent: #1e3c72;
+    --accent-light: #2a5298;
+    --subtle: #5a5a5a;
+    --bg-section: #f7f9fc;
+    --card-shadow: 0 2px 12px rgba(30,60,114,0.09);
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Montserrat", sans-serif; color: #222; background: #fff; margin: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Navbar ── */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 56px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .navbar-brand { color: #fff; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; }
+  .navbar-links { display: flex; gap: 8px; }
+  .navbar-links a {
+    color: rgba(255,255,255,0.82); font-size: 0.82rem; font-weight: 600;
+    padding: 6px 12px; border-radius: 4px; transition: background 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .navbar-links a:hover { background: rgba(255,255,255,0.15); text-decoration: none; color: #fff; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: #fff; text-align: center; padding: 72px 24px 56px;
+  }
+  .hero h1 { font-size: 2.6rem; font-weight: 700; margin: 0 0 8px; letter-spacing: 1px; }
+  .hero .subtitle { font-size: 1rem; opacity: 0.85; margin-bottom: 20px; }
+  .hero-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+  .hero-links a {
+    color: #fff; background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 24px; padding: 7px 18px;
+    font-size: 0.82rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 7px;
+    transition: background 0.2s;
+  }
+  .hero-links a:hover { background: rgba(255,255,255,0.28); text-decoration: none; }
+
+  /* ── Sections ── */
+  .section { padding: 52px 24px; max-width: 860px; margin: 0 auto; }
+  .section-alt { background: var(--bg-section); }
+  .section-alt .section { }
+  .section-title {
+    font-size: 1.25rem; font-weight: 700; color: var(--accent);
+    border-bottom: 2px solid var(--accent); padding-bottom: 8px;
+    margin-bottom: 28px; letter-spacing: 0.5px;
+  }
+
+  /* ── Profile ── */
+  .profile-text { font-size: 0.95rem; line-height: 1.75; color: #333; }
+
+  /* ── Education ── */
+  .edu-entry { margin-bottom: 24px; }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+  .edu-title { font-weight: 700; font-size: 0.97rem; }
+  .edu-meta { font-size: 0.82rem; color: var(--subtle); font-style: italic; }
+  .edu-grades { font-size: 0.85rem; color: #444; margin-top: 5px; }
+
+  /* ── Skills ── */
+  .skills-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .skills-table td { padding: 7px 10px 7px 0; vertical-align: top; border-bottom: 1px solid #e8edf4; }
+  .skills-table td:first-child { font-weight: 700; color: var(--accent); white-space: nowrap; padding-right: 18px; width: 140px; }
+
+  /* ── Projects ── */
+  .project-card {
+    background: #fff; border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--accent);
+    padding: 20px 22px; margin-bottom: 20px;
+  }
+  .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+  .project-title { font-weight: 700; font-size: 0.97rem; color: var(--accent); }
+  .project-meta { font-size: 0.80rem; color: var(--subtle); font-style: italic; }
+  .project-badge {
+    display: inline-block; background: #e8f0fe; color: var(--accent);
+    border-radius: 12px; font-size: 0.75rem; font-weight: 700;
+    padding: 2px 10px; margin-left: 8px; vertical-align: middle;
+  }
+  .project-desc { font-size: 0.87rem; color: #333; line-height: 1.7; margin-top: 8px; }
+
+  /* ── Certifications ── */
+  .cert-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; padding: 10px 0; border-bottom: 1px solid #e8edf4; }
+  .cert-row:last-child { border-bottom: none; }
+  .cert-name { font-size: 0.88rem; }
+  .cert-date { font-size: 0.82rem; color: var(--subtle); white-space: nowrap; }
+
+  /* ── Photos ── */
+  .photos-toggle { text-align: center; margin-bottom: 20px; }
+  .photos-toggle button {
+    background: var(--accent); color: #fff; border: none; border-radius: 6px;
+    padding: 9px 22px; font-size: 0.88rem; font-weight: 600; cursor: pointer;
+    font-family: "Montserrat", sans-serif; transition: background 0.2s;
+  }
+  .photos-toggle button:hover { background: var(--accent-light); }
+  #photoGrid img { margin-bottom: 0; }
+  .w3-row-padding img { margin-bottom: 12px; }
+
+  /* ── Footer ── */
+  .site-footer {
+    background: var(--accent); color: rgba(255,255,255,0.75);
+    text-align: center; padding: 36px 24px; font-size: 0.88rem;
+  }
+  .site-footer .footer-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 14px; font-size: 1.4rem; }
+  .site-footer .footer-icons a { color: rgba(255,255,255,0.75); transition: color 0.2s; }
+  .site-footer .footer-icons a:hover { color: #fff; text-decoration: none; }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.7rem; }
+    .navbar-links { display: none; flex-direction: column; position: absolute; top: 56px; left: 0; right: 0; background: var(--accent); padding: 12px 0; }
+    .navbar-links.open { display: flex; }
+    .hamburger { display: block; }
+    .skills-table td:first-child { width: 110px; }
+    .project-header { flex-direction: column; }
+  }
 </style>
 </head>
 <body>
-<script src="https://app.wotnot.io/chat-widget/5qBC24MCmTbB133706510339rRjggUEa.js" defer></script>
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
-    <i class="fa fa-remove"></i>
-  </a>
-  <div class="w3-bar-block w3-center">
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Photos</a>
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Contact</a>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <span class="navbar-brand">Pantelis Kotsas</span>
+  <div class="navbar-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#photos">Photos</a>
   </div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
-
-<!-- Header -->
-<div class="w3-opacity">
-<span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span> 
-<div class="w3-clear"></div>
-<header class="w3-center w3-margin-bottom">
-  <h1><b>PHOTOS TAKEN BY PANTELIS</b></h1>
-  <p><b>Hi! I hope you like my photos!</b></p>
-  <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">Toggle Grid Padding</button></p>
-</header>
+<!-- Hero -->
+<div class="hero">
+  <h1>Pantelis Kotsas</h1>
+  <p class="subtitle">Computer Science &amp; Telecommunications &mdash; NKUA &nbsp;|&nbsp; Athens, Greece</p>
+  <div class="hero-links">
+    <a href="mailto:pandeliskotsas@gmail.com"><i class="fa fa-envelope"></i> pandeliskotsas@gmail.com</a>
+    <a href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/panteliskts" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+  </div>
 </div>
 
-<!-- Photo Grid -->
-<div class="w3-row" id="myGrid" style="margin-bottom:128px">
-  <div class="w3-third">
-    <img src="images\File_000.png" style="width:100%">
-    <img src="images\File_001.png" style="width:100%">
-    <img src="images\IMG_2476.jpg" style="width:100%">
-    <img src="images\calm plants.jpg" style="width:100%">
-    <img src="images\IMG_2692.JPG" style="width:100%">
-    <img src="images\IMG_5081.jpg" style="width:100%">
+<!-- About -->
+<div id="about">
+  <div class="section">
+    <div class="section-title">Profile</div>
+    <p class="profile-text">
+      Computer Science &amp; Telecommunications student at NKUA with hands-on experience in systems programming, kernel development, backend web development, and cloud-native architectures. Strong foundation in OS internals, algorithms, and data structures, with practical project experience spanning C kernel extensions, POSIX concurrency, disk-based storage engines, Python web backends, and Azure serverless platforms.
+    </p>
   </div>
-  
-  <div class="w3-third">
-    <img src="images\img2.png" style="width:100%">
-    <img src="images\tv tower night.jpg" style="width:100%">
-    <img src="images\IMG_1270.JPG" style="width:100%">
-    <img src="images\IMG_2335.JPG" style="width:100%">
-    <img src="images\river.jpg" style="width:100%">
-    <img src="images\sea.jpg" style="width:100%">
-  </div>
-
-  <div class="w3-third">
-    <img src="images\pexels-mutecevvil-28871575.jpg" style="width:100%">
-    <img src="images\gold.jpg" style="width:100%">
-    <img src="images\lion.jpg" style="width:100%">
-    <img src="images\waterfall.jpg" style="width:100%">
-    <img src="images\IMG_2690.jpg" style="width:100%">
-  </div>
-  
 </div>
 
-<!-- End Page Content -->
+<!-- Education -->
+<div class="section-alt" id="education">
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <span class="edu-title">B.Sc. in Computer Science and Telecommunications</span>
+        <span class="edu-meta">2023 &ndash; Present &middot; NKUA, Athens, Greece</span>
+      </div>
+      <p class="edu-grades">Notable grades: Artificial Intelligence I (9/10) &nbsp;&middot;&nbsp; Algorithms &amp; Data Structures (8/10) &nbsp;&middot;&nbsp; New Venture Creation (9.5/10)</p>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <span class="edu-title">High School Diploma &mdash; Grade: 19.16 / 20</span>
+        <span class="edu-meta">Sep 2020 &ndash; Jul 2023</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Skills -->
+<div id="skills">
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td>Languages</td>
+        <td>C/C++, Python, TypeScript/JavaScript, RISC-V Assembly, SQL, HTML/CSS, MATLAB</td>
+      </tr>
+      <tr>
+        <td>Systems</td>
+        <td>xv6-riscv kernel, POSIX Shared Memory &amp; Semaphores, Linux</td>
+      </tr>
+      <tr>
+        <td>Backend &amp; Web</td>
+        <td>FastAPI, Next.js, React, Python (Bottle), Firebase, PostgreSQL, Tailwind CSS</td>
+      </tr>
+      <tr>
+        <td>Cloud &amp; DevOps</td>
+        <td>Azure Durable Functions, Azure Event Grid, Twilio, Server-Sent Events, Docker</td>
+      </tr>
+      <tr>
+        <td>Tools</td>
+        <td>Git/GitHub, MySQL Workbench</td>
+      </tr>
+      <tr>
+        <td>Languages (Human)</td>
+        <td>Greek (Native), English (C2 &mdash; Cambridge CPE)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Projects -->
+<div class="section-alt" id="projects">
+  <div class="section">
+    <div class="section-title">Projects</div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">HITL Gateway &mdash; AI Agent Governance Platform <span class="project-badge">🏆 3rd Place</span></span>
+        <span class="project-meta">2026 &middot; ThinkBiz 2026 Hackathon &middot; Microsoft Challenge</span>
+      </div>
+      <p class="project-desc">
+        Full-stack AI governance middleware on Azure Durable Functions with zero-compute wait states, multi-tenant isolation, and a full audit trail (filterable timeline + CSV export). Built a multi-stage SLA escalation pipeline (Telegram, Twilio voice pager, Resend), a real-time React dashboard with live orchestration visualization, and layered enterprise security (HMAC-SHA256, SSRF prevention, rate limiting, replay prevention) &mdash; 91 passing tests.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">MLFQ Scheduler in xv6-riscv</span>
+        <span class="project-meta">2025 &middot; Operating Systems Course, NKUA</span>
+      </div>
+      <p class="project-desc">
+        Extended the xv6-riscv teaching OS kernel with a custom multi-level feedback queue scheduler. Implemented 4-level priority-based preemption with timeslice demotion, an anti-starvation boost mechanism, and a <code>getpinfo()</code> system call end-to-end (kernel &rarr; syscall dispatch &rarr; user-space <code>ps</code> utility).
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">Disk-Based B+ Tree File Engine</span>
+        <span class="project-meta">2025 &middot; Databases Course, NKUA</span>
+      </div>
+      <p class="project-desc">
+        Implemented a B+ tree in C over a 512-byte block file library supporting insert, split, and search. Built correct node splitting, tree rebalancing, and leaf-chain traversal; inserted and searched 400+ records while diagnosing and fixing critical memory corruption in block size constraints.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">IPC Multi-Process Messaging System</span>
+        <span class="project-meta">2025 &middot; Operating Systems Course, NKUA</span>
+      </div>
+      <p class="project-desc">
+        Built a multi-process messaging system in C using POSIX shared memory and named semaphores. Supported 10 concurrent dialogs with exactly-once delivery, mutual exclusion via <code>sem_wait/post</code>, non-blocking I/O polling via <code>select()</code>, and graceful shutdown with automatic resource cleanup.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">HelpMeAnytime &mdash; Apps4Athens Hackathon 2.0 <span class="project-badge">🏅 6th / 60 teams</span></span>
+        <span class="project-meta">2025 &middot; Hackathon &middot; Athens</span>
+      </div>
+      <p class="project-desc">
+        Architected a full civic platform (Next.js + TypeScript + PostgreSQL) connecting Athens residents with local artisans, volunteers, and neighbourhood crowdfunding. Coordinated the development team under hackathon time pressure and pitched the business model to the jury.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">Notable &mdash; Note-Taking App Startup Simulation</span>
+        <span class="project-meta">2025 &middot; New Venture Creation Course, NKUA</span>
+      </div>
+      <p class="project-desc">
+        Led a simulated startup as CEO and CTO. Directed product strategy, market research, and business model canvas; gathered feedback from 50+ users via surveys and delivered a full business plan and elevator pitch to faculty.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Certifications -->
+<div id="certifications">
+  <div class="section">
+    <div class="section-title">Certifications &amp; Distinctions</div>
+
+    <div class="cert-row">
+      <span class="cert-name">Hack &rsquo;n Learn &mdash; Hellenic Cyber Security Team (Web &amp; Binary Exploitation)</span>
+      <span class="cert-date">May 2024</span>
+    </div>
+    <div class="cert-row">
+      <span class="cert-name">Big Data Analytics and Web Development with AI &mdash; IEEE University of Piraeus</span>
+      <span class="cert-date">May 2024</span>
+    </div>
+    <div class="cert-row">
+      <span class="cert-name">Digital Marketing Fundamentals &mdash; IIDE</span>
+      <span class="cert-date">Jan 2024</span>
+    </div>
+    <div class="cert-row">
+      <span class="cert-name">Cambridge Proficiency in English (CPE) &mdash; C2 Level</span>
+      <span class="cert-date">2022</span>
+    </div>
+    <div class="cert-row">
+      <span class="cert-name">7th International Olympiad of Hellenism &mdash; Romania</span>
+      <span class="cert-date">Sep 2022</span>
+    </div>
+  </div>
+</div>
+
+<!-- Photos -->
+<div class="section-alt" id="photos">
+  <div class="section">
+    <div class="section-title">Photography</div>
+    <div class="photos-toggle">
+      <button onclick="toggleGrid()">Toggle Grid Padding</button>
+    </div>
+    <div class="w3-row" id="photoGrid">
+      <div class="w3-third">
+        <img src="images/File_000.png" style="width:100%">
+        <img src="images/File_001.png" style="width:100%">
+        <img src="images/IMG_2476.jpg" style="width:100%">
+        <img src="images/calm plants.jpg" style="width:100%">
+        <img src="images/IMG_2692.JPG" style="width:100%">
+        <img src="images/IMG_5081.jpg" style="width:100%">
+      </div>
+      <div class="w3-third">
+        <img src="images/img2.png" style="width:100%">
+        <img src="images/tv tower night.jpg" style="width:100%">
+        <img src="images/IMG_1270.JPG" style="width:100%">
+        <img src="images/IMG_2335.JPG" style="width:100%">
+        <img src="images/river.jpg" style="width:100%">
+        <img src="images/sea.jpg" style="width:100%">
+      </div>
+      <div class="w3-third">
+        <img src="images/pexels-mutecevvil-28871575.jpg" style="width:100%">
+        <img src="images/gold.jpg" style="width:100%">
+        <img src="images/lion.jpg" style="width:100%">
+        <img src="images/waterfall.jpg" style="width:100%">
+        <img src="images/IMG_2690.jpg" style="width:100%">
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin-top:128px"> 
-  <a href="https://www.facebook.com/profile.php?id=100048853928419" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-  <a href="https://www.instagram.com/panteliskotsas?igsh=YTh6Nmd4cXowOTdm" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-  <a href="https://https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-  <a href="https://github.com/panteliskts" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
-    
-  </a>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+<footer class="site-footer">
+  <div class="footer-icons">
+    <a href="https://www.facebook.com/profile.php?id=100048853928419" target="_blank" title="Facebook"><i class="fa fa-facebook-official"></i></a>
+    <a href="https://www.instagram.com/panteliskotsas" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/panteliskts" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+    <a href="mailto:pandeliskotsas@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+  </div>
+  <p style="margin:0;">&copy; 2026 Pantelis Kotsas &nbsp;&middot;&nbsp; Athens, Greece</p>
 </footer>
- 
+
 <script>
-// Toggle grid padding
-function myFunction() {
-  var x = document.getElementById("myGrid");
-  if (x.className === "w3-row") {
-    x.className = "w3-row-padding";
-  } else { 
-    x.className = x.className.replace("w3-row-padding", "w3-row");
+  function toggleGrid() {
+    var g = document.getElementById("photoGrid");
+    g.className = g.className === "w3-row" ? "w3-row-padding" : "w3-row";
   }
-}
 
-// Open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.width = "100%";
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
+  function toggleNav() {
+    var n = document.getElementById("navLinks");
+    n.classList.toggle("open");
+  }
 </script>
 
 </body>
