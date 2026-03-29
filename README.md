@@ -1,8 +1,6 @@
 <h1>Hi 👋, I'm Pantelis Kotsas</h1>
 <h3>Computer Science & Telecommunications student at NKUA with hands-on experience in systems programming, kernel development, backend web development, and cloud-native architectures. I thrive in team environments and am always looking for opportunities to grow and apply what I've learned in meaningful ways.</h3>
 
-<p> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=panteliskts"></a> </p>
-
 - 🔭 I'm currently working on **AI governance middleware, OS kernel extensions, and full-stack web platforms**
 
 - 🌱 I'm currently learning **Azure serverless architectures, OS internals, and distributed systems**
