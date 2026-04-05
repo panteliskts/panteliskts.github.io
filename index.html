@@ -113,10 +113,39 @@
   .project-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.7; }
 
   /* ── Certifications ── */
-  .cert-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .cert-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--border); }
   .cert-row:last-child { border-bottom: none; }
   .cert-name { font-size: 0.875rem; }
   .cert-date { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; }
+  .cert-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .cert-download {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.75rem; font-weight: 500; color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 14px;
+    padding: 2px 10px; transition: background 0.15s, color 0.15s;
+  }
+  .cert-download:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+  /* ── CV Download ── */
+  .cv-download-box {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; box-shadow: var(--card-shadow);
+    padding: 20px 22px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+  }
+  .cv-download-box .cv-info { font-size: 0.875rem; color: #374151; line-height: 1.6; }
+  .cv-download-box .cv-info strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 2px; }
+  .cv-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 10px 20px; border-radius: 6px;
+    font-size: 0.875rem; font-weight: 600; white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .cv-btn:hover { background: var(--accent-dark); text-decoration: none; color: #fff; }
+
+  /* ── VSCO icon ── */
+  .vsco-svg { width: 1em; height: 1em; vertical-align: -0.1em; display: inline-block; }
 
   /* ── Footer ── */
   .site-footer {
@@ -153,6 +182,7 @@
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#certifications">Certifications</a>
+    <a href="#cv">CV</a>
     <a href="photos.html" class="nav-cta">Photography</a>
   </div>
   <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
@@ -171,6 +201,8 @@
           <a href="mailto:pandeliskotsas@gmail.com"><i class="fa fa-envelope"></i> pandeliskotsas@gmail.com</a>
           <a href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
           <a href="https://github.com/panteliskts" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          <a href="https://vsco.co/panteliskts" target="_blank"><svg class="vsco-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 1.8a8.2 8.2 0 1 1 0 16.4A8.2 8.2 0 0 1 12 3.8zM9.1 8.2l2.9 6.8 2.9-6.8h1.6L12 17.8 7.5 8.2z"/></svg> VSCO</a>
+          <a href="cv.pdf" download><i class="fa fa-download"></i> Download CV</a>
         </div>
       </div>
     </div>
@@ -311,23 +343,47 @@
 
     <div class="cert-row">
       <span class="cert-name">Hack &rsquo;n Learn &mdash; Hellenic Cyber Security Team (Web &amp; Binary Exploitation)</span>
-      <span class="cert-date">May 2024</span>
+      <div class="cert-meta">
+        <span class="cert-date">May 2024</span>
+        <a href="hacknlearn-2024-137-padelis-kotsas.pdf" download class="cert-download"><i class="fa fa-download"></i> Certificate</a>
+      </div>
     </div>
     <div class="cert-row">
       <span class="cert-name">Big Data Analytics and Web Development with AI &mdash; IEEE University of Piraeus</span>
-      <span class="cert-date">May 2024</span>
+      <div class="cert-meta">
+        <span class="cert-date">May 2024</span>
+        <a href="20_certificate%20of%20participation.jpg" download class="cert-download"><i class="fa fa-download"></i> Certificate</a>
+      </div>
     </div>
     <div class="cert-row">
       <span class="cert-name">Digital Marketing Fundamentals &mdash; IIDE</span>
-      <span class="cert-date">Jan 2024</span>
+      <div class="cert-meta">
+        <span class="cert-date">Jan 2024</span>
+      </div>
     </div>
     <div class="cert-row">
       <span class="cert-name">Cambridge Proficiency in English (CPE) &mdash; C2 Level</span>
-      <span class="cert-date">2022</span>
+      <div class="cert-meta">
+        <span class="cert-date">2022</span>
+      </div>
     </div>
     <div class="cert-row">
       <span class="cert-name">7th International Olympiad of Hellenism &mdash; Romania</span>
-      <span class="cert-date">Sep 2022</span>
+      <div class="cert-meta">
+        <span class="cert-date">Sep 2022</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV Download -->
+  <div class="section" id="cv">
+    <div class="section-title">Curriculum Vitae</div>
+    <div class="cv-download-box">
+      <div class="cv-info">
+        <strong>Pantelis Kotsas &mdash; CV</strong>
+        Up-to-date resume covering education, skills, projects, and certifications.
+      </div>
+      <a href="cv.pdf" download class="cv-btn"><i class="fa fa-download"></i> Download CV (PDF)</a>
     </div>
   </div>
 
@@ -340,6 +396,7 @@
     <a href="https://www.instagram.com/panteliskotsas" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
     <a href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
     <a href="https://github.com/panteliskts" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+    <a href="https://vsco.co/panteliskts" target="_blank" title="VSCO"><svg class="vsco-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 1.8a8.2 8.2 0 1 1 0 16.4A8.2 8.2 0 0 1 12 3.8zM9.1 8.2l2.9 6.8 2.9-6.8h1.6L12 17.8 7.5 8.2z"/></svg></a>
     <a href="mailto:pandeliskotsas@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
     <a href="photos.html" title="Photography"><i class="fa fa-camera"></i></a>
   </div>
