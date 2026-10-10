@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pantelis Kotsas monogram">
+  <rect width="64" height="64" rx="10" fill="#111111"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M12 54V10h16c10 0 17 7 17 17s-7 17-17 17H21"/>
+    <path d="M25 54V32M25 46L51 18M37 33l15 21"/>
+  </g>
+</svg>

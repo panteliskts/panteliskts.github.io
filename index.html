@@ -1,413 +1,547 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<title>Pantelis Kotsas</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  :root {
-    --accent: #1a56db;
-    --accent-dark: #1e40af;
-    --subtle: #6b7280;
-    --bg: #f9fafb;
-    --bg-card: #ffffff;
-    --border: #e5e7eb;
-    --text: #111827;
-    --text-muted: #6b7280;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  }
-  * { box-sizing: border-box; }
-  body { font-family: "Inter", sans-serif; color: var(--text); background: var(--bg); margin: 0; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code { font-size: 0.85em; background: #f3f4f6; padding: 1px 5px; border-radius: 3px; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="color-scheme" content="dark" />
+  <title>Pantelis Kotsas · Links</title>
+  <meta name="description" content="Pantelis Kotsas: portfolio, LinkedIn, GitHub, Kaggle, CV, and contact details in one place." />
+  <link rel="canonical" href="https://panteliskts.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="assets/poster-portrait.webp" media="(max-aspect-ratio: 1/1)" />
+  <link rel="preload" as="image" href="assets/poster-landscape.webp" media="(min-aspect-ratio: 1/1)" />
+  <link rel="preconnect" href="https://panteliskotsas.com" />
 
-  /* ── Navbar ── */
-  .navbar {
-    position: sticky; top: 0; z-index: 100;
-    background: #fff; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px; height: 60px;
-  }
-  .navbar-brand {
-    font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .navbar-brand:hover { text-decoration: none; }
-  .navbar-links { display: flex; gap: 4px; align-items: center; }
-  .navbar-links a {
-    color: var(--text-muted); font-size: 0.875rem; font-weight: 500;
-    padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s;
-  }
-  .navbar-links a:hover { background: var(--bg); color: var(--text); text-decoration: none; }
-  .navbar-links a.active { color: var(--accent); background: #eff6ff; }
-  .navbar-links a.nav-cta {
-    background: var(--accent); color: #fff; margin-left: 6px;
-  }
-  .navbar-links a.nav-cta:hover { background: var(--accent-dark); }
-  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Pantelis Kotsas" />
+  <meta property="og:title" content="Pantelis Kotsas" />
+  <meta property="og:description" content="Portfolio, LinkedIn, GitHub, Kaggle, CV, and contact details in one place." />
+  <meta property="og:url" content="https://panteliskts.github.io/" />
+  <meta property="og:image" content="https://panteliskts.github.io/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pantelis Kotsas, Computer Science and Telecommunications, NKUA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pantelis Kotsas" />
+  <meta name="twitter:description" content="Portfolio, LinkedIn, GitHub, Kaggle, CV, and contact details in one place." />
+  <meta name="twitter:image" content="https://panteliskts.github.io/assets/og.jpg" />
 
-  /* ── Page Header ── */
-  .page-header {
-    background: #fff; border-bottom: 1px solid var(--border);
-    padding: 40px 40px 36px;
-    max-width: 900px; margin: 0 auto;
-  }
-  .page-header-inner { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-  .page-header h1 { font-size: 1.75rem; font-weight: 700; margin: 0 0 6px; color: var(--text); }
-  .page-header .tagline { font-size: 0.95rem; color: var(--text-muted); margin: 0 0 14px; }
-  .contact-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .contact-chips a {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.8rem; font-weight: 500; color: var(--text-muted);
-    border: 1px solid var(--border); border-radius: 20px;
-    padding: 4px 12px; background: #fff; transition: border-color 0.15s, color 0.15s;
-  }
-  .contact-chips a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pantelis Kotsas",
+      "url": "https://panteliskotsas.com/",
+      "email": "mailto:contact@panteliskotsas.com",
+      "sameAs": [
+        "https://panteliskts.github.io/",
+        "https://github.com/panteliskts",
+        "https://www.linkedin.com/in/pantelis-kotsas-46861a299/",
+        "https://www.kaggle.com/pandeliskotsas"
+      ]
+    }
+  </script>
 
-  /* ── Layout ── */
-  .page-wrap { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; }
-  .section { padding-top: 40px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; color: var(--text-muted);
-    letter-spacing: 1.2px; text-transform: uppercase;
-    margin-bottom: 18px; padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #ffffff;
+      --muted: rgba(255, 255, 255, 0.62);
+      --faint: rgba(255, 255, 255, 0.42);
+      --line: rgba(255, 255, 255, 0.18);
+      --line-strong: rgba(255, 255, 255, 0.42);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+      --gutter: clamp(20px, 5.5vw, 56px);
+      color-scheme: dark;
+    }
 
-  /* ── About ── */
-  .profile-text { font-size: 0.925rem; line-height: 1.8; color: #374151; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── Education ── */
-  .edu-entry { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
-  .edu-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .edu-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
-  .edu-title { font-weight: 600; font-size: 0.925rem; }
-  .edu-meta { font-size: 0.8rem; color: var(--text-muted); }
-  .edu-grades { font-size: 0.85rem; color: #4b5563; margin-top: 5px; }
+    html { background: var(--bg); -webkit-text-size-adjust: 100%; }
 
-  /* ── Skills ── */
-  .skills-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-  .skills-table tr:last-child td { border-bottom: none; }
-  .skills-table td { padding: 9px 12px 9px 0; vertical-align: top; border-bottom: 1px solid var(--border); }
-  .skills-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; padding-right: 20px; width: 150px; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex; flex-direction: column;
+      color: var(--fg);
+      font-family: var(--font);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
 
-  /* ── Projects ── */
-  .project-card {
-    background: var(--bg-card); border-radius: 8px;
-    box-shadow: var(--card-shadow); border: 1px solid var(--border);
-    padding: 20px 22px; margin-bottom: 16px;
-  }
-  .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-  .project-title { font-weight: 600; font-size: 0.925rem; color: var(--text); }
-  .project-meta { font-size: 0.78rem; color: var(--text-muted); }
-  .project-badge {
-    display: inline-flex; align-items: center; gap: 4px;
-    background: #fef9c3; color: #92400e;
-    border-radius: 10px; font-size: 0.72rem; font-weight: 600;
-    padding: 2px 9px; margin-left: 8px; vertical-align: middle;
-  }
-  .project-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.7; }
+    ::selection { background: #ffffff; color: #000000; }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; color: inherit; background: none; border: 0; -webkit-tap-highlight-color: transparent; }
+    svg { display: block; flex-shrink: 0; }
+    :focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; }
 
-  /* ── Certifications ── */
-  .cert-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--border); }
-  .cert-row:last-child { border-bottom: none; }
-  .cert-name { font-size: 0.875rem; }
-  .cert-date { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; }
-  .cert-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-  .cert-download {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 0.75rem; font-weight: 500; color: var(--accent);
-    border: 1px solid var(--accent); border-radius: 14px;
-    padding: 2px 10px; transition: background 0.15s, color 0.15s;
-  }
-  .cert-download:hover { background: var(--accent); color: #fff; text-decoration: none; }
+    .skip {
+      position: fixed; top: 12px; left: 12px; z-index: 50;
+      padding: 10px 14px; background: #ffffff; color: #000000;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      transform: translateY(-200%); transition: transform 0.2s ease;
+    }
+    .skip:focus { transform: none; }
 
-  /* ── CV Download ── */
-  .cv-download-box {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 8px; box-shadow: var(--card-shadow);
-    padding: 20px 22px;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
-  }
-  .cv-download-box .cv-info { font-size: 0.875rem; color: #374151; line-height: 1.6; }
-  .cv-download-box .cv-info strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 2px; }
-  .cv-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent); color: #fff;
-    padding: 10px 20px; border-radius: 6px;
-    font-size: 0.875rem; font-weight: 600; white-space: nowrap;
-    transition: background 0.15s;
-  }
-  .cv-btn:hover { background: var(--accent-dark); text-decoration: none; color: #fff; }
+    /* Backdrop: poster paints instantly, the video fades in once it plays */
+    .backdrop {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
+      background: var(--bg) url("assets/poster-landscape.webp") center / cover no-repeat;
+    }
+    @media (max-aspect-ratio: 1/1) {
+      .backdrop { background-image: url("assets/poster-portrait.webp"); }
+    }
+    .backdrop video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0;
+      transition: opacity 1.8s var(--ease);
+    }
+    .backdrop video.is-on { opacity: 1; }
+    .backdrop__grain {
+      position: absolute; inset: 0; opacity: 0.09; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .backdrop__shade {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(11, 11, 11, 0.5) 0%, rgba(11, 11, 11, 0.28) 26%, rgba(11, 11, 11, 0.74) 56%, rgba(11, 11, 11, 0.95) 100%);
+    }
 
-  /* ── VSCO icon ── */
-  .vsco-svg { width: 1em; height: 1em; vertical-align: -0.1em; display: inline-block; }
+    /* Layout */
+    .page {
+      position: relative;
+      display: flex; flex-direction: column;
+      flex: 1 0 auto;
+      width: 100%; max-width: 480px;
+      margin: 0 auto;
+      padding:
+        calc(env(safe-area-inset-top, 0px) + 18px)
+        calc(env(safe-area-inset-right, 0px) + var(--gutter))
+        0
+        calc(env(safe-area-inset-left, 0px) + var(--gutter));
+    }
 
-  /* ── Footer ── */
-  .site-footer {
-    background: #fff; border-top: 1px solid var(--border);
-    text-align: center; padding: 28px 24px; font-size: 0.82rem; color: var(--text-muted);
-  }
-  .site-footer .footer-icons { display: flex; justify-content: center; gap: 18px; margin-bottom: 12px; font-size: 1.2rem; }
-  .site-footer .footer-icons a { color: var(--text-muted); transition: color 0.15s; }
-  .site-footer .footer-icons a:hover { color: var(--accent); text-decoration: none; }
+    .top { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: block; margin-left: -10px; }
+    .brand img { display: block; width: 64px; height: 64px; }
 
-  /* ── Mobile ── */
-  @media (max-width: 680px) {
-    .navbar { padding: 0 20px; }
-    .navbar-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 8px 12px 12px; z-index: 99; }
-    .navbar-links.open { display: flex; }
-    .navbar-links a.nav-cta { margin-left: 0; margin-top: 4px; }
-    .hamburger { display: block; }
-    .page-header { padding: 28px 20px 24px; }
-    .page-wrap { padding: 0 20px 40px; }
-    .project-header { flex-direction: column; }
-    .edu-header { flex-direction: column; }
-    .skills-table td:first-child { width: 120px; }
-  }
-</style>
+    .share {
+      display: inline-flex; align-items: center; gap: 10px;
+      height: 44px; padding: 0 16px;
+      border: 1px solid var(--line-strong);
+      background: rgba(11, 11, 11, 0.25);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+    }
+    .share svg { width: 15px; height: 15px; }
+
+    .intro { padding-top: clamp(40px, 9vh, 120px); }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 500; line-height: 1.6;
+      letter-spacing: 0.26em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    h1 {
+      margin: 16px 0 22px;
+      font-size: clamp(54px, 16vw, 78px);
+      font-weight: 400; line-height: 0.98; letter-spacing: -0.035em;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+    }
+    h1 .line { display: block; overflow: hidden; padding-bottom: 0.04em; }
+    h1 .line > span { display: block; }
+
+    .bio {
+      max-width: 34ch;
+      font-size: 15px; font-weight: 300; line-height: 1.65;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .status {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-top: 22px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .status__dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: #ffffff; }
+    .status__dot::after {
+      content: ""; position: absolute; inset: -5px; border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      animation: ping 2.6s var(--ease) infinite;
+    }
+    @keyframes ping {
+      0% { transform: scale(0.4); opacity: 1; }
+      80%, 100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    .stack { padding-top: 40px; }
+
+    /* Link rows */
+    .links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+
+    .link {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: grid; grid-template-columns: 24px minmax(0, 1fr) 18px; align-items: center; gap: 18px;
+      min-height: 68px; padding: 12px 20px;
+      border: 1px solid var(--line);
+      background: rgba(11, 11, 11, 0.42);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      transition: color 0.45s var(--ease), border-color 0.45s var(--ease), scale 0.2s var(--ease);
+    }
+    .link::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: #ffffff;
+      transform: scaleX(0); transform-origin: right center;
+      transition: transform 0.6s var(--ease);
+    }
+    .link:active { scale: 0.985; }
+
+    .link__icon { width: 22px; height: 22px; }
+    .link__text { min-width: 0; }
+    .link__label {
+      display: block;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .link__meta {
+      display: block; margin-top: 3px;
+      font-size: 13px; letter-spacing: 0.01em;
+      color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: color 0.45s var(--ease);
+    }
+
+    .link__arrow { position: relative; width: 18px; height: 18px; overflow: hidden; }
+    .link__arrow svg {
+      position: absolute; inset: 0; width: 18px; height: 18px;
+      transition: transform 0.55s var(--ease);
+    }
+    .link__arrow svg + svg { transform: translate(-130%, 130%); }
+    .link--down .link__arrow svg + svg { transform: translateY(-130%); }
+
+    .link--primary {
+      min-height: 76px;
+      background: #ffffff; color: #0b0b0b; border-color: #ffffff;
+      -webkit-backdrop-filter: none; backdrop-filter: none;
+    }
+    .link--primary::before { background: #0b0b0b; }
+    .link--primary .link__label { font-size: 14px; }
+    .link--primary .link__meta { color: rgba(11, 11, 11, 0.62); }
+
+    @media (hover: hover) {
+      .share:hover { background: #ffffff; color: #0b0b0b; border-color: #ffffff; }
+
+      .link:hover { color: #0b0b0b; border-color: #ffffff; }
+      .link:hover::before { transform: scaleX(1); transform-origin: left center; }
+      .link:hover .link__meta { color: rgba(11, 11, 11, 0.62); }
+      .link:hover .link__arrow svg:first-child { transform: translate(130%, -130%); }
+      .link--down:hover .link__arrow svg:first-child { transform: translateY(130%); }
+      .link:hover .link__arrow svg + svg { transform: none; }
+
+      .link--primary:hover { color: #ffffff; }
+      .link--primary:hover .link__meta { color: var(--muted); }
+
+      .social:hover { background: #ffffff; color: #0b0b0b; }
+    }
+
+    /* Elsewhere */
+    .elsewhere {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      margin-top: 28px; padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .socials { display: flex; gap: 10px; }
+    .social {
+      display: grid; place-items: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      transition: background-color 0.3s var(--ease), color 0.3s var(--ease), scale 0.2s var(--ease);
+    }
+    .social:active { scale: 0.94; }
+    .social svg { width: 19px; height: 19px; }
+
+    /* Footer */
+    .foot {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: auto; padding-top: 56px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--faint);
+    }
+    .foot time { font-variant-numeric: tabular-nums; }
+
+    .wordmark {
+      flex-shrink: 0; overflow: hidden; height: calc(min(22.5vw, 300px) * 0.74);
+      margin-top: 18px;
+      pointer-events: none; user-select: none; -webkit-user-select: none;
+    }
+    .wordmark span {
+      display: block;
+      font-size: min(22.5vw, 300px); font-weight: 400; line-height: 1; letter-spacing: -0.045em;
+      text-align: center; white-space: nowrap;
+      color: rgba(255, 255, 255, 0.075);
+    }
+
+    .toast {
+      position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); z-index: 40;
+      padding: 14px 20px;
+      background: #ffffff; color: #0b0b0b;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0; translate: -50% 16px; pointer-events: none;
+      transition: opacity 0.4s var(--ease), translate 0.4s var(--ease);
+    }
+    .toast.is-on { opacity: 1; translate: -50% 0; }
+
+    /* Entrance */
+    .rise { opacity: 0; translate: 0 18px; animation: rise 1s var(--ease) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
+    @keyframes rise { to { opacity: 1; translate: 0 0; } }
+    h1 .line > span { transform: translateY(105%); animation: lineUp 1.2s var(--ease) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
+    @keyframes lineUp { to { transform: none; } }
+
+    /* Desktop: name on the left, links on the right */
+    @media (min-width: 960px) {
+      .page {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 440px;
+        grid-template-rows: auto 1fr auto;
+        column-gap: clamp(56px, 8vw, 160px);
+        max-width: 1280px;
+        padding-top: 28px;
+      }
+      .top, .foot { grid-column: 1 / -1; }
+      .brand img { width: 72px; height: 72px; }
+      .intro { align-self: center; padding: 0 0 0 4px; }
+      .stack { align-self: center; padding: 48px 0; }
+      h1 { font-size: clamp(84px, 8.4vw, 132px); margin: 22px 0 28px; }
+      .bio { font-size: 17px; max-width: 30em; }
+      .backdrop__shade {
+        background:
+          linear-gradient(90deg, rgba(11, 11, 11, 0.6) 0%, rgba(11, 11, 11, 0.15) 55%, rgba(11, 11, 11, 0) 100%),
+          linear-gradient(180deg, rgba(11, 11, 11, 0.5) 0%, rgba(11, 11, 11, 0.3) 30%, rgba(11, 11, 11, 0.7) 70%, rgba(11, 11, 11, 0.92) 100%);
+      }
+      .foot { padding-top: 24px; }
+    }
+
+    @media (max-height: 700px) and (max-width: 959px) {
+      .intro { padding-top: 40px; }
+      h1 { font-size: clamp(48px, 14vw, 64px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+      .rise { opacity: 1; translate: none; }
+      h1 .line > span { transform: none; }
+    }
+  </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M12 4v15M6 13l6 6 6-6"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.25"/><path d="M2.75 12h18.5M12 2.75c2.6 2.6 3.9 5.7 3.9 9.25s-1.3 6.65-3.9 9.25c-2.6-2.6-3.9-5.7-3.9-9.25S9.4 5.35 12 2.75z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+      <symbol id="i-kaggle" viewBox="-3.5 -3.5 31 31" fill="currentColor"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="2.75" y="4.75" width="18.5" height="14.5"/><path d="m3 6 9 7 9-7"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M14.5 2.75H5.75v18.5h12.5V6.5z"/><path d="M14.25 2.75V6.75h4M8.75 11.75h6.5M8.75 15.25h6.5"/></symbol>
+      <symbol id="i-contact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="9" cy="8" r="3.75"/><path d="M2.75 20.25c.6-3.6 3-5.5 6.25-5.5s5.65 1.9 6.25 5.5M19 8.5v6M16 11.5h6"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M12 3v12M7 8l5-5 5 5M4.75 12.5v8.75h14.5V12.5"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.75" y="2.75" width="18.5" height="18.5" rx="5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.4" cy="6.6" r="0.6" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-aperture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.25"/><path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83m13.79-4-5.74 9.94"/></symbol>
+    </defs>
+  </svg>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <a href="index.html" class="navbar-brand">Pantelis Kotsas</a>
-  <div class="navbar-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#cv">CV</a>
-    <a href="photos.html" class="nav-cta">Photography</a>
+  <a class="skip" href="#links">Skip to links</a>
+
+  <div class="backdrop" aria-hidden="true">
+    <video id="bg" muted playsinline loop preload="none" disableremoteplayback></video>
+    <div class="backdrop__grain"></div>
+    <div class="backdrop__shade"></div>
   </div>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
 
-<!-- Page Header -->
-<div style="background:#fff; border-bottom: 1px solid var(--border);">
-  <div class="page-header" style="padding-bottom:32px;">
-    <div class="page-header-inner">
-      <div>
-        <h1>Pantelis Kotsas</h1>
-        <p class="tagline">Computer Science &amp; Telecommunications &mdash; NKUA &nbsp;&middot;&nbsp; Athens, Greece</p>
-        <div class="contact-chips">
-          <a href="mailto:pandeliskotsas@gmail.com"><i class="fa fa-envelope"></i> pandeliskotsas@gmail.com</a>
-          <a href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/panteliskts" target="_blank"><i class="fa fa-github"></i> GitHub</a>
-          <a href="https://vsco.co/panteliskts" target="_blank"><svg class="vsco-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 1.8a8.2 8.2 0 1 1 0 16.4A8.2 8.2 0 0 1 12 3.8zM9.1 8.2l2.9 6.8 2.9-6.8h1.6L12 17.8 7.5 8.2z"/></svg> VSCO</a>
-          <a href="cv.pdf" download><i class="fa fa-download"></i> Download CV</a>
+  <main class="page">
+    <header class="top rise" style="--d: 0">
+      <a class="brand" href="https://panteliskotsas.com/" aria-label="Pantelis Kotsas portfolio">
+        <img src="assets/logo-light.webp" width="64" height="64" alt="" />
+      </a>
+      <button class="share" id="share" type="button" aria-label="Share this page">
+        <svg aria-hidden="true"><use href="#i-share" /></svg>
+        <span>Share</span>
+      </button>
+    </header>
+
+    <section class="intro" aria-label="About">
+      <p class="eyebrow rise" style="--d: 120">Computer Science &amp; Telecommunications · NKUA</p>
+      <h1>
+        <span class="line"><span style="--d: 180">Pantelis</span></span>
+        <span class="line"><span style="--d: 270">Kotsas</span></span>
+      </h1>
+      <p class="bio rise" style="--d: 420">
+        Building machine-learning and optimization systems, the backend services that run them, and the interfaces on top.
+      </p>
+      <p class="status rise" style="--d: 500">
+        <span class="status__dot" aria-hidden="true"></span>
+        Open to work · Athens, Greece
+      </p>
+    </section>
+
+    <section class="stack" aria-label="Links">
+      <ul class="links" id="links">
+        <li class="rise" style="--d: 560">
+          <a class="link link--primary" href="https://panteliskotsas.com/">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-globe" /></svg>
+            <span class="link__text">
+              <span class="link__label">Portfolio</span>
+              <span class="link__meta">panteliskotsas.com</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-arrow" /></svg><svg><use href="#i-arrow" /></svg></span>
+          </a>
+        </li>
+        <li class="rise" style="--d: 620">
+          <a class="link" href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank" rel="noopener">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-linkedin" /></svg>
+            <span class="link__text">
+              <span class="link__label">LinkedIn</span>
+              <span class="link__meta">in/pantelis-kotsas</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-arrow" /></svg><svg><use href="#i-arrow" /></svg></span>
+          </a>
+        </li>
+        <li class="rise" style="--d: 680">
+          <a class="link" href="https://github.com/panteliskts" target="_blank" rel="noopener">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-github" /></svg>
+            <span class="link__text">
+              <span class="link__label">GitHub</span>
+              <span class="link__meta">@panteliskts</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-arrow" /></svg><svg><use href="#i-arrow" /></svg></span>
+          </a>
+        </li>
+        <li class="rise" style="--d: 740">
+          <a class="link" href="https://www.kaggle.com/pandeliskotsas" target="_blank" rel="noopener">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-kaggle" /></svg>
+            <span class="link__text">
+              <span class="link__label">Kaggle</span>
+              <span class="link__meta">@pandeliskotsas</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-arrow" /></svg><svg><use href="#i-arrow" /></svg></span>
+          </a>
+        </li>
+        <li class="rise" style="--d: 800">
+          <a class="link" href="mailto:contact@panteliskotsas.com">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-mail" /></svg>
+            <span class="link__text">
+              <span class="link__label">Email</span>
+              <span class="link__meta">contact@panteliskotsas.com</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-arrow" /></svg><svg><use href="#i-arrow" /></svg></span>
+          </a>
+        </li>
+        <li class="rise" style="--d: 860">
+          <a class="link link--down" href="https://panteliskotsas.com/CV-Pantelis%20Kotsas.pdf" target="_blank" rel="noopener">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-file" /></svg>
+            <span class="link__text">
+              <span class="link__label">Curriculum Vitae</span>
+              <span class="link__meta">PDF, one page</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-down" /></svg><svg><use href="#i-down" /></svg></span>
+          </a>
+        </li>
+        <li class="rise" style="--d: 920">
+          <a class="link link--down" href="pantelis-kotsas.vcf" type="text/vcard">
+            <svg class="link__icon" aria-hidden="true"><use href="#i-contact" /></svg>
+            <span class="link__text">
+              <span class="link__label">Save Contact</span>
+              <span class="link__meta">Add me to your phone</span>
+            </span>
+            <span class="link__arrow" aria-hidden="true"><svg><use href="#i-down" /></svg><svg><use href="#i-down" /></svg></span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="elsewhere rise" style="--d: 1000">
+        <p class="eyebrow">Elsewhere</p>
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/panteliskotsas/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg aria-hidden="true"><use href="#i-instagram" /></svg>
+          </a>
+          <a class="social" href="https://vsco.co/panteliskts" target="_blank" rel="noopener" aria-label="VSCO photography" title="VSCO">
+            <svg aria-hidden="true"><use href="#i-aperture" /></svg>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- Main Content -->
-<div class="page-wrap">
+    <footer class="foot rise" style="--d: 1060">
+      <span>© <span id="year">2026</span> Pantelis Kotsas</span>
+      <span>Athens <time id="clock"></time></span>
+    </footer>
+  </main>
 
-  <!-- About -->
-  <div class="section" id="about">
-    <div class="section-title">Profile</div>
-    <p class="profile-text">
-      Computer Science &amp; Telecommunications student at NKUA with hands-on experience in systems programming, kernel development, backend web development, and cloud-native architectures. Strong foundation in OS internals, algorithms, and data structures, with practical project experience spanning C kernel extensions, POSIX concurrency, disk-based storage engines, Python web backends, and Azure serverless platforms.
-    </p>
-  </div>
+  <div class="wordmark" aria-hidden="true"><span>PANTELIS</span></div>
 
-  <!-- Education -->
-  <div class="section" id="education">
-    <div class="section-title">Education</div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <div class="edu-entry">
-      <div class="edu-header">
-        <span class="edu-title">B.Sc. in Computer Science and Telecommunications</span>
-        <span class="edu-meta">2023 &ndash; Present &middot; NKUA, Athens, Greece</span>
-      </div>
-      <p class="edu-grades">Notable grades: Artificial Intelligence I (9/10) &nbsp;&middot;&nbsp; Algorithms &amp; Data Structures (8/10) &nbsp;&middot;&nbsp; New Venture Creation (9.5/10)</p>
-    </div>
+  <script>
+    (function () {
+      var video = document.getElementById('bg');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var saveData = navigator.connection && navigator.connection.saveData;
 
-    <div class="edu-entry">
-      <div class="edu-header">
-        <span class="edu-title">High School Diploma &mdash; Grade: 19.16 / 20</span>
-        <span class="edu-meta">Sep 2020 &ndash; Jul 2023</span>
-      </div>
-    </div>
-  </div>
+      if (video && !reduce && !saveData) {
+        var portrait = window.matchMedia('(max-aspect-ratio: 1/1)').matches;
+        video.muted = true;
+        video.src = portrait ? 'assets/bg-portrait.mp4' : 'assets/bg-landscape.mp4';
+        video.addEventListener('playing', function () { video.classList.add('is-on'); }, { once: true });
+        var attempt = video.play();
+        if (attempt && attempt.catch) attempt.catch(function () {});
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) video.pause();
+          else video.play().catch(function () {});
+        });
+      }
 
-  <!-- Skills -->
-  <div class="section" id="skills">
-    <div class="section-title">Technical Skills</div>
-    <table class="skills-table">
-      <tr>
-        <td>Languages</td>
-        <td>C/C++, Python, TypeScript/JavaScript, RISC-V Assembly, SQL, HTML/CSS, MATLAB</td>
-      </tr>
-      <tr>
-        <td>Systems</td>
-        <td>xv6-riscv kernel, POSIX Shared Memory &amp; Semaphores, Linux</td>
-      </tr>
-      <tr>
-        <td>Backend &amp; Web</td>
-        <td>FastAPI, Next.js, React, Python (Bottle), Firebase, PostgreSQL, Tailwind CSS</td>
-      </tr>
-      <tr>
-        <td>Cloud &amp; DevOps</td>
-        <td>Azure Durable Functions, Azure Event Grid, Twilio, Server-Sent Events, Docker</td>
-      </tr>
-      <tr>
-        <td>Tools</td>
-        <td>Git/GitHub, MySQL Workbench</td>
-      </tr>
-      <tr>
-        <td>Languages (Human)</td>
-        <td>Greek (Native), English (C2 &mdash; Cambridge CPE)</td>
-      </tr>
-    </table>
-  </div>
+      var year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
 
-  <!-- Projects -->
-  <div class="section" id="projects">
-    <div class="section-title">Projects</div>
+      var clock = document.getElementById('clock');
+      if (clock && window.Intl) {
+        var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit' });
+        var tick = function () { clock.textContent = fmt.format(new Date()); };
+        tick();
+        setInterval(tick, 15000);
+      }
 
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">HITL Gateway &mdash; AI Agent Governance Platform <span class="project-badge">🏆 3rd Place</span></span>
-        <span class="project-meta">2026 &middot; ThinkBiz 2026 Hackathon &middot; Microsoft Challenge</span>
-      </div>
-      <p class="project-desc">
-        Full-stack AI governance middleware on Azure Durable Functions with zero-compute wait states, multi-tenant isolation, and a full audit trail (filterable timeline + CSV export). Built a multi-stage SLA escalation pipeline (Telegram, Twilio voice pager, Resend), a real-time React dashboard with live orchestration visualization, and layered enterprise security (HMAC-SHA256, SSRF prevention, rate limiting, replay prevention) &mdash; 91 passing tests.
-      </p>
-    </div>
+      var toast = document.getElementById('toast');
+      var timer;
+      function say(message) {
+        toast.textContent = message;
+        toast.classList.add('is-on');
+        clearTimeout(timer);
+        timer = setTimeout(function () { toast.classList.remove('is-on'); }, 2200);
+      }
 
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">MLFQ Scheduler in xv6-riscv</span>
-        <span class="project-meta">2025 &middot; Operating Systems Course, NKUA</span>
-      </div>
-      <p class="project-desc">
-        Extended the xv6-riscv teaching OS kernel with a custom multi-level feedback queue scheduler. Implemented 4-level priority-based preemption with timeslice demotion, an anti-starvation boost mechanism, and a <code>getpinfo()</code> system call end-to-end (kernel &rarr; syscall dispatch &rarr; user-space <code>ps</code> utility).
-      </p>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">Disk-Based B+ Tree File Engine</span>
-        <span class="project-meta">2025 &middot; Databases Course, NKUA</span>
-      </div>
-      <p class="project-desc">
-        Implemented a B+ tree in C over a 512-byte block file library supporting insert, split, and search. Built correct node splitting, tree rebalancing, and leaf-chain traversal; inserted and searched 400+ records while diagnosing and fixing critical memory corruption in block size constraints.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">IPC Multi-Process Messaging System</span>
-        <span class="project-meta">2025 &middot; Operating Systems Course, NKUA</span>
-      </div>
-      <p class="project-desc">
-        Built a multi-process messaging system in C using POSIX shared memory and named semaphores. Supported 10 concurrent dialogs with exactly-once delivery, mutual exclusion via <code>sem_wait/post</code>, non-blocking I/O polling via <code>select()</code>, and graceful shutdown with automatic resource cleanup.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">HelpMeAnytime &mdash; Apps4Athens Hackathon 2.0 <span class="project-badge">🏅 6th / 60 teams</span></span>
-        <span class="project-meta">2025 &middot; Hackathon &middot; Athens</span>
-      </div>
-      <p class="project-desc">
-        Architected a full civic platform (Next.js + TypeScript + PostgreSQL) connecting Athens residents with local artisans, volunteers, and neighbourhood crowdfunding. Coordinated the development team under hackathon time pressure and pitched the business model to the jury.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">Notable &mdash; Note-Taking App Startup Simulation</span>
-        <span class="project-meta">2025 &middot; New Venture Creation Course, NKUA</span>
-      </div>
-      <p class="project-desc">
-        Led a simulated startup as CEO and CTO. Directed product strategy, market research, and business model canvas; gathered feedback from 50+ users via surveys and delivered a full business plan and elevator pitch to faculty.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Certifications -->
-  <div class="section" id="certifications">
-    <div class="section-title">Certifications &amp; Distinctions</div>
-
-    <div class="cert-row">
-      <span class="cert-name">Hack &rsquo;n Learn &mdash; Hellenic Cyber Security Team (Web &amp; Binary Exploitation)</span>
-      <div class="cert-meta">
-        <span class="cert-date">May 2024</span>
-        <a href="hacknlearn-2024-137-padelis-kotsas.pdf" download class="cert-download"><i class="fa fa-download"></i> Certificate</a>
-      </div>
-    </div>
-    <div class="cert-row">
-      <span class="cert-name">Big Data Analytics and Web Development with AI &mdash; IEEE University of Piraeus</span>
-      <div class="cert-meta">
-        <span class="cert-date">May 2024</span>
-        <a href="20_certificate%20of%20participation.jpg" download class="cert-download"><i class="fa fa-download"></i> Certificate</a>
-      </div>
-    </div>
-    <div class="cert-row">
-      <span class="cert-name">Digital Marketing Fundamentals &mdash; IIDE</span>
-      <div class="cert-meta">
-        <span class="cert-date">Jan 2024</span>
-      </div>
-    </div>
-    <div class="cert-row">
-      <span class="cert-name">Cambridge Proficiency in English (CPE) &mdash; C2 Level</span>
-      <div class="cert-meta">
-        <span class="cert-date">2022</span>
-      </div>
-    </div>
-    <div class="cert-row">
-      <span class="cert-name">7th International Olympiad of Hellenism &mdash; Romania</span>
-      <div class="cert-meta">
-        <span class="cert-date">Sep 2022</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- CV Download -->
-  <div class="section" id="cv">
-    <div class="section-title">Curriculum Vitae</div>
-    <div class="cv-download-box">
-      <div class="cv-info">
-        <strong>Pantelis Kotsas &mdash; CV</strong>
-        Up-to-date resume covering education, skills, projects, and certifications.
-      </div>
-      <a href="cv.pdf" download class="cv-btn"><i class="fa fa-download"></i> Download CV (PDF)</a>
-    </div>
-  </div>
-
-</div>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-icons">
-    <a href="https://www.facebook.com/profile.php?id=100048853928419" target="_blank" title="Facebook"><i class="fa fa-facebook-official"></i></a>
-    <a href="https://www.instagram.com/panteliskotsas" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/pantelis-kotsas-46861a299/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-    <a href="https://github.com/panteliskts" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
-    <a href="https://vsco.co/panteliskts" target="_blank" title="VSCO"><svg class="vsco-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 1.8a8.2 8.2 0 1 1 0 16.4A8.2 8.2 0 0 1 12 3.8zM9.1 8.2l2.9 6.8 2.9-6.8h1.6L12 17.8 7.5 8.2z"/></svg></a>
-    <a href="mailto:pandeliskotsas@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
-    <a href="photos.html" title="Photography"><i class="fa fa-camera"></i></a>
-  </div>
-  <p style="margin:0;">&copy; 2026 Pantelis Kotsas &nbsp;&middot;&nbsp; Athens, Greece</p>
-</footer>
-
-<script>
-  function toggleNav() {
-    document.getElementById("navLinks").classList.toggle("open");
-  }
-</script>
-
+      document.getElementById('share').addEventListener('click', function () {
+        var url = location.origin + location.pathname.replace(/index\.html$/, '');
+        if (navigator.share) {
+          navigator.share({ title: 'Pantelis Kotsas', url: url }).catch(function () {});
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () { say('Link copied'); }, function () { say(url); });
+        } else {
+          say(url);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
